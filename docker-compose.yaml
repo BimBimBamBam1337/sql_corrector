@@ -1,0 +1,41 @@
+services:
+  
+  test:
+    image: postgres:15
+    container_name: test_db
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${TEST_DB}
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_test:/var/lib/postgresql/data
+    networks:
+      - network
+
+  prod:
+    image: postgres:15
+    container_name: prod_db
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${PROD_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_prod:/var/lib/postgresql/data
+    networks:
+      - network
+
+networks:
+  network:
+    driver: bridge
+
+volumes:
+  postgres_test:
+  postgres_prod:
