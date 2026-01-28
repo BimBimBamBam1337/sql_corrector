@@ -79,7 +79,6 @@ class SQLSchemaCorrector:
             with engine.begin() as conn:
                 for statement in statements:
                     conn.execute(text(statement))
-            print("Внесены изменения")
         except Exception as e:
             print(f"Возникла ошибка: {e}")
 

@@ -28,5 +28,5 @@ create_tables:
 	docker-compose exec -T prod psql -U root -d prod < create_tables.sql
 	docker-compose exec -T test psql -U root -d test < create_tables.sql
 
-make run:
-	uv run python main.py
+run:
+	docker-compose run --rm app uv run python main.py
