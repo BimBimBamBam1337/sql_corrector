@@ -46,14 +46,6 @@ make down
 ```bash
 make stop
 ```
-### Запустить контейнеры
-```bash
-make start
-```
-### Перезапустить контейнеры
-```bash
-make restart
-```
 ### Зайти в оболочку для prod базы
 ```bash
 make prod_db

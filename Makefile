@@ -9,12 +9,6 @@ down:
 stop:
 	docker-compose stop app
 
-start:
-	docker-compose start app 
-
-restart:
-	docker-compose restart app
-
 prod_db:
 	docker-compose exec -it prod psql -h localhost -U ${DB_USER} -d ${PROD_DB}
 
